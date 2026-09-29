@@ -1,0 +1,349 @@
+/* Custom CSS Variables & Reset */
+:root {
+  --primary-bg: linear-gradient(135deg, #1A1B4B 0%, #292A73 40%, #3B2261 100%);
+  --cover-gradient: linear-gradient(135deg, #FF512F 0%, #DD2476 50%, #FF61D2 100%);
+  --page-bg: #FFFDF9;
+  --text-dark: #2D3748;
+  --accent-gold: #FFD700;
+  --accent-purple: #7C3AED;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background: var(--primary-bg);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+/* Floating Sparkles */
+.sparkles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: floatSparkle 4s infinite ease-in-out;
+  opacity: 0.7;
+}
+
+@keyframes floatSparkle {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-25px) scale(1.3) rotate(15deg);
+    opacity: 0.95;
+  }
+}
+
+/* App Wrapper Layout */
+.app-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.header-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 3D Scene Settings */
+.scene {
+  width: 310px;
+  height: 440px;
+  perspective: 1400px;
+  margin-bottom: 25px;
+}
+
+/* Book Container */
+.book {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.book.open {
+  transform: translateX(42%);
+}
+
+/* Common Page Styles */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+}
+
+.page.flipped {
+  transform: rotateY(-180deg);
+}
+
+.page-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0 16px 16px 0;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.04), 8px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Front Cover Face */
+.front-cover {
+  background: var(--cover-gradient);
+  color: #fff;
+  border-left: 10px solid #B8194F;
+  overflow: hidden;
+}
+
+.spine-edge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Cover Image Styling for Randy.png */
+.cover-image-wrapper {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  margin-top: 5px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulseBadge 2.5s infinite ease-in-out;
+}
+
+.teacher-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.card-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25);
+  margin: 10px 0 2px 0;
+}
+
+.card-subtitle {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.click-tag {
+  background: #ffffff;
+  color: #DD2476;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.click-tag:hover {
+  transform: scale(1.05);
+}
+
+/* Inside Left Page Face (Back of Cover) */
+.inside-left {
+  background: var(--page-bg);
+  color: var(--text-dark);
+  transform: rotateY(180deg);
+  border-right: 2px solid #EAEAEA;
+  justify-content: flex-start;
+  border-radius: 16px 0 0 16px;
+}
+
+.spine-shadow-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 15px;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0,0,0,0.08), transparent);
+}
+
+.inside-heading {
+  font-family: 'Fredoka One', cursive;
+  color: #DD2476;
+  font-size: 1.6rem;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.inside-body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #4A5568;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.decor-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 1.3rem;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* Inside Right Page Face (Base) */
+.inside-right {
+  background: var(--page-bg);
+  color: var(--text-dark);
+  border-left: 2px solid #EAEAEA;
+  border-radius: 0 16px 16px 0;
+}
+
+.spine-shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.08), transparent);
+}
+
+.ribbon-corner {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: var(--accent-gold);
+  font-size: 1.5rem;
+}
+
+.quote-icon {
+  color: #CBD5E0;
+  font-size: 1.8rem;
+}
+
+.quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2D3748;
+  margin-top: 20px;
+}
+
+.signature {
+  font-size: 0.9rem;
+  color: #718096;
+  line-height: 1.4;
+}
+
+.student-name {
+  font-weight: 700;
+  color: var(--accent-purple);
+  font-size: 1rem;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #7C3AED, #A855F7);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+/* Control Bar Footer */
+.control-bar {
+  margin-top: 10px;
+}
+
+.toggle-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

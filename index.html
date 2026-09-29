@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Teachers' Day Card</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Sparkles Background -->
+  <div class="sparkles-container">
+    <div class="sparkle" style="top: 15%; left: 10%; animation-delay: 0s;">✨</div>
+    <div class="sparkle" style="top: 25%; left: 85%; animation-delay: 1.2s;">🌟</div>
+    <div class="sparkle" style="top: 70%; left: 15%; animation-delay: 0.7s;">🎨</div>
+    <div class="sparkle" style="top: 80%; left: 80%; animation-delay: 2s;">💖</div>
+    <div class="sparkle" style="top: 45%; left: 90%; animation-delay: 1.5s;">✨</div>
+    <div class="sparkle" style="top: 10%; left: 70%; animation-delay: 0.3s;">🎈</div>
+  </div>
+
+  <main class="app-wrapper">
+    <!-- Header Badge -->
+    <div class="header-badge">
+      <i class="fa-solid fa-graduation-cap"></i> Interactive Greeting Card
+    </div>
+
+    <!-- 3D Scene -->
+    <div class="scene">
+      <div class="book" id="book">
+
+        <!-- Fixed Base Page (Inside Right Face) -->
+        <div class="page-face inside-right">
+          <div class="spine-shadow"></div>
+          <div class="ribbon-corner">
+            <i class="fa-solid fa-ribbon"></i>
+          </div>
+
+          <p class="quote">
+            <i class="fa-solid fa-quote-left quote-icon"></i><br>
+            "A truly great teacher is hard to find, difficult to part with, and impossible to forget."
+          </p>
+
+          <p class="signature">
+            With endless gratitude,<br>
+            <span class="student-name">Kelvin Banez 🎓</span>
+          </p>
+
+          <button id="confettiBtn" class="action-btn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Celebrate Teacher!
+          </button>
+        </div>
+
+        <!-- Flipping Cover Page -->
+        <div class="page" id="coverPage">
+
+          <!-- Front Cover Face -->
+          <div class="page-face front-cover">
+            <div class="spine-edge"></div>
+
+            <!-- Profile Image Container -->
+            <div class="cover-image-wrapper">
+              <img src="Randy.png" alt="Randy" class="teacher-img" />
+            </div>
+
+            <h1 class="card-title">Happy Teachers' Day!</h1>
+            <p class="card-subtitle">To Sir Randy Bello</p>
+
+            <div class="click-tag">
+              <i class="fa-solid fa-hand-pointer"></i> Tap to Open Card
+            </div>
+          </div>
+
+          <!-- Inside Left Face (Back of Cover) -->
+          <div class="page-face inside-left">
+            <div class="spine-shadow-right"></div>
+            <h2 class="inside-heading">Dear Sir Randy,</h2>
+            <p class="inside-body">
+              Thank you for being the light that guides us, the patience that heals our mistakes, and the wisdom that empowers our future.
+            </p>
+            <p class="inside-body">
+              You don't just teach lessons from books; you build character, spark creativity, and inspire us to reach for the stars every single day!
+            </p>
+            <div class="decor-icons">
+              <span>📚</span>
+              <span>✏️</span>
+              <span>🚀</span>
+              <span>🏆</span>
+            </div>
+          </div>
+
+        </div> <!-- End Cover Page -->
+
+      </div> <!-- End Book -->
+    </div> <!-- End Scene -->
+
+    <!-- Interactive Hint Footer -->
+    <div class="control-bar">
+      <button id="toggleBtn" class="toggle-btn">
+        <i class="fa-solid fa-book-open" id="toggleIcon"></i>
+        <span id="toggleText">Click Card to Flip</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
