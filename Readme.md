@@ -27,4 +27,4 @@ Teachers-Day-Message-Card/
 
 🚀 How to Use
 
-Open the live site: 👉 https://bellord10.github.io/Teachers-Day-Message-Card/ Enjoy the card animations and message.
+Open the live site: 👉 https://kelvinbanez.github.io/Teachers-Day-Card/ Enjoy the card animations and message.
