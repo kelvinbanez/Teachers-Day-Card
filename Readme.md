@@ -24,3 +24,7 @@ Teachers-Day-Message-Card/
 ├── script.js       # Card flipping logic, sound synthesis, and confetti triggers
 ├── Randy.png        # Teacher's profile image
 └── README.md        # Project documentation
+
+🚀 How to Use
+
+Open the live site: 👉 https://bellord10.github.io/Teachers-Day-Message-Card/ Enjoy the card animations and message.
